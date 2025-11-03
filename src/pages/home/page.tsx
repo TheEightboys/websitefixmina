@@ -271,10 +271,13 @@ export default function Home() {
                   <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
                     A premier platform convening leaders, governments, investors, and thinkers to shape Africa’s role in the new global order
                   </h1>
-                  <button className="bg-white text-blue-900 px-8 py-3 rounded-md hover:bg-gray-100 font-medium flex items-center space-x-2 whitespace-nowrap cursor-pointer">
+                  <Link
+                    to="/about"
+                    className="bg-white text-blue-900 px-8 py-3 rounded-md hover:bg-gray-100 font-medium flex items-center space-x-2 whitespace-nowrap cursor-pointer"
+                  >
                     <span>More about the Forum</span>
                     <i className="ri-arrow-right-line"></i>
-                  </button>
+                  </Link>
                 </div>
               </div>
               <div className="relative">
