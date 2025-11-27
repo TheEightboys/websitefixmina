@@ -565,86 +565,6 @@ export default function AboutPage() {
                   </div>
                 </div>
 
-                {/* Dr. M'zée Fula-Ngenge */}
-                <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                  <img
-                    src="/images/mzee-fula-ngenge.jpg"
-                    alt="Dr. M'zée Fula-Ngenge"
-                    className="w-full h-64 object-cover object-top"
-                  />
-                  <div className="p-6">
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">Dr. M'zée Fula-Ngenge</h4>
-                    <p className="text-sm text-blue-600 mb-3">Chairman of Pan-African Business and Development Initiatives</p>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      Visionary leader promoting investment, infrastructure, and cross‑border partnerships in Africa. Recognized as a bridge‑builder between global investors and African economies.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Dr. Nigel Chanakira */}
-                <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                  <img
-                    src="/images/nigel-chanakira.jpg"
-                    alt="Dr. Nigel Chanakira"
-                    className="bg-white rounded-lg shadow-lg overflow-hidden"
-                  />
-                  <div className="p-6">
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">Dr. Nigel Chanakira</h4>
-                    <p className="text-sm text-blue-600 mb-3">Zimbabwean Economist &amp; Investor</p>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      Founder of Kingdom Financial Holdings. Private equity leader driving SME growth and pan‑African investment strategies. Advisor on financial innovation and entrepreneurship development across Africa.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Dr. Sunday Adelaja */}
-                <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                  <img
-                    src="/images/sunday-adelaja.jpg"
-                    alt="Dr. Sunday Adelaja"
-                    className="w-full h-64 object-cover object-top"
-                  />
-                  <div className="p-6">
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">Dr. Sunday Adelaja</h4>
-                    <p className="text-sm text-blue-600 mb-3">Nigerian Thought Leader &amp; Reform Advocate</p>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      Renowned author and reform advocate. Founder of one of Europe's largest multicultural churches. Influential in leadership transformation, governance reform, and nation‑building strategies. Global speaker shaping values‑driven leadership.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Dr. Daere Akobo */}
-                <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                  <img
-                    src="/images/daere-akobo.jpg"
-                    alt="Dr. Daere Akobo"
-                    className="w-full h-64 object-cover object-top"
-                  />
-                  <div className="p-6">
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">Dr. Daere Akobo</h4>
-                    <p className="text-sm text-blue-600 mb-3">Chairman of Pana Holdings</p>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      Leading Nigerian entrepreneur. Specialist in oilfield services, technology, and infrastructure. Philanthropist and investor advancing industrialization, capacity building, and innovation across West Africa.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Diego Massimiliano De Giorgi */}
-                <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                  <img
-                    src="/images/diego-de-giorgi.jpg"
-                    alt="Diego Massimiliano De Giorgi"
-                    className="w-full h-64 object-cover object-top"
-                  />
-                  <div className="p-6">
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">Diego Massimiliano De Giorgi</h4>
-                    <p className="text-sm text-blue-600 mb-3">Global Investment Strategist &amp; Entrepreneur</p>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      Global investment strategist and entrepreneur with extensive experience in international finance, infrastructure, and sustainable development. Founder and CEO of multiple ventures bridging European capital with emerging market opportunities. Advocate for responsible investment and cross‑continental partnerships fostering Africa's industrial transformation. Combines deep market insight with a commitment to ethical leadership and long‑term value creation.
-                    </p>
-                  </div>
-                </div>
-
                 {/* H. E. Muhammad Azfar Ahsan */}
                 <div className="bg-white rounded-lg shadow-lg overflow-hidden">
                   <img
@@ -660,6 +580,88 @@ export default function AboutPage() {
                     </p>
                   </div>
                 </div>
+
+                {/* Dr. Daere Akobo */}
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                  <img
+                    src="/images/daere-akobo.jpg"
+                    alt="Dr. Daere Akobo"
+                    className="bg-white rounded-lg shadow-lg overflow-hidden"
+                  />
+                  <div className="p-6">
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">Dr. Daere Akobo</h4>
+                    <p className="text-sm text-blue-600 mb-3">Chairman of Pana Holdings</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      Leading Nigerian entrepreneur. Specialist in oilfield services, technology, and infrastructure. Philanthropist and investor advancing industrialization, capacity building, and innovation across West Africa.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Dr. M'zée Fula-Ngenge */}
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                  <img
+                    src="/images/mzee-fula-ngenge.jpg"
+                    alt="Dr. M'zée Fula-Ngenge"
+                    className="w-full h-64 object-cover object-top"
+                  />
+                  <div className="p-6">
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">Dr. M'zée Fula-Ngenge</h4>
+                    <p className="text-sm text-blue-600 mb-3">Chairman of Pan-African Business and Development Initiatives</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      Dr M'zée Fula Ngenge, Chairman of the African Diamond Council (ADC), is a Mining Engineer and highly respected Senior Strategy Advisor who celebrated 40 years in the global diamond industry this year. He acts as a professional liaison within the international diamond trade and is well-positioned to influence, both the public and private sectors.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Dr. Nigel Chanakira */}
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                  <img
+                    src="/images/nigel-chanakira.jpg"
+                    alt="Dr. Nigel Chanakira"
+                    className="w-full h-64 object-cover object-top"
+                  />
+                  <div className="p-6">
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">Dr. Nigel Chanakira</h4>
+                    <p className="text-sm text-blue-600 mb-3">Zimbabwean Economist & Investor</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      Founder of Kingdom Financial Holdings. Private equity leader driving SME growth and pan‑African investment strategies. Advisor on financial innovation and entrepreneurship development across Africa.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Dr. Sunday Adelaja */}
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                  <img
+                    src="/images/sunday-adelaja.jpg"
+                    alt="Dr. Sunday Adelaja"
+                    className="w-full h-64 object-cover object-top"
+                  />
+                  <div className="p-6">
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">Dr. Sunday Adelaja</h4>
+                    <p className="text-sm text-blue-600 mb-3">Nigerian Thought Leader & Reform Advocate</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      Renowned author and reform advocate. Founder of one of Europe's largest multicultural churches. Influential in leadership transformation, governance reform, and nation‑building strategies. Global speaker shaping values‑driven leadership.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Diego Massimiliano De Giorgi */}
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                  <img
+                    src="/images/diego-de-giorgi.jpg"
+                    alt="Diego Massimiliano De Giorgi"
+                    className="w-full h-64 object-cover object-top"
+                  />
+                  <div className="p-6">
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">Diego Massimiliano De Giorgi</h4>
+                    <p className="text-sm text-blue-600 mb-3">Global Investment Strategist & Entrepreneur</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      Global investment strategist and entrepreneur with extensive experience in international finance, infrastructure, and sustainable development. Founder and CEO of multiple ventures bridging European capital with emerging market opportunities. Advocate for responsible investment and cross‑continental partnerships fostering Africa's industrial transformation. Combines deep market insight with a commitment to ethical leadership and long‑term value creation.
+                    </p>
+                  </div>
+                </div>
+
+                
               </div>
             </div>
 
@@ -700,6 +702,26 @@ export default function AboutPage() {
                     <p className="text-sm text-blue-600 mb-3">Founder &amp; President, Justina Mutale Foundation</p>
                     <p className="text-gray-600 text-sm leading-relaxed">
                       Global award‑winning leader on gender equality and women's empowerment. International keynote speaker and mentor to emerging African women leaders. Recognized among the most influential women in Africa and beyond.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Dr. Amina Touré */}
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                  <img
+                    src="/images/amina-Touré.jpeg"
+                    alt="Dr. Amina Touré"
+                    className="w-full h-64 object-cover object-top"
+                  />
+                  <div className="p-6">
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">Dr. Amina Touré</h4>
+                    <p className="text-sm text-blue-600 mb-3">Director of Communication, Media & Public Relations, Africa Economic Forum</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      Development practitioner, researcher, and strategic communicator with a strong focus on Africa’s political economy and global narratives. Amina holds a Bachelor of Laws and an MSc in International Development & Humanitarian Emergencies from the London School of Economics, and is completing an MPhil in African Studies at the University of Cambridge, specializing in extractive industries, Chinese investment, and state–business relations in the Democratic Republic of Congo (DRC).
+
+Her work spans policy research, media strategy, and narrative shaping. She has authored influential analyses on resource governance, value-chain upgrading, and the political economy of strategic minerals. As an independent journalist, she documents the conflict in eastern Congo and the expansion of mining operations in the south, producing field-rooted reporting that centers Congolese perspectives and brings nuance to globally misunderstood issues.
+
+Amina brings to the AEF a unique blend of intellectual rigor, communication expertise, and geopolitical insight—crafting narratives that strengthen Africa’s voice, credibility, and influence on the global stage.
                     </p>
                   </div>
                 </div>
