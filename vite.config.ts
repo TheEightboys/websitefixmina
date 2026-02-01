@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import { resolve } from 'node:path'
-import AutoImport from 'unplugin-auto-import/vite'
+import AutoImport from 'unplugin-auto-import/dist/vite.mjs'
 
 const base = process.env.BASE_PATH || '/'
 const isPreview = process.env.IS_PREVIEW  ? true : false;
