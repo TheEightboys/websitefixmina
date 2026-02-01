@@ -2,11 +2,13 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
+import { useTranslation } from 'react-i18next';
 import MeetingRegistrationForm from '../../components/forms/MeetingRegistrationForm';
 import { jsPDF } from "jspdf"; // Certifique-se de que esta linha esteja presente
 
 export default function AgendaPage() {
   const { user, signOut } = useAuth();
+  const { i18n } = useTranslation();
   const navigate = useNavigate();
 
   // Events data (mover aqui para não usar `events` antes de ser declarado)
@@ -382,7 +384,7 @@ Tourism:
       location: "To be announced — Forum Host Country Partner",
       image:
         "/images/miningafrica.jpg",
-description: `
+      description: `
 Africa's minerals are the bedrock of the global energy transition. 
 This forum is dedicated to moving the continent from mere extraction to value-chain dominance. 
 We focus on local beneficiation, ESG-compliant mining, and financing mineral processing plants.
@@ -457,7 +459,7 @@ Public signing of MoUs for new processing plants and supply agreements.`,
       location: "To be announced — Forum Host Country Partner",
       image:
         "/images/africaenergi.jpg",
-description: `
+      description: `
 Energy and infrastructure are the non-negotiable backbones of economic sovereignty. 
 This forum is a dedicated deal-making hub for bankable projects in power, transport, 
 and digital infrastructure. We showcase integrated projects—from renewable energy 
@@ -532,7 +534,7 @@ Summary of MoUs and deals announced.
       location: "To be announced — Forum Host Country Partner",
       image:
         "/images/africafood.jpg",
-description: `
+      description: `
 This forum is dedicated to transforming Africa into the world's next breadbasket. 
 We focus on integrating smallholder farmers into global value chains through 
 cutting-edge technology and innovative finance. The agenda features live AgTech 
@@ -609,7 +611,7 @@ Announcements of major supply contracts and investments in processing facilities
       location: "To be announced — Forum Host Country Partner",
       image:
         "/images/africawelth.jpeg",
-description: `
+      description: `
 This is Africa's premier gathering for the guardians of capital.
 The Wealth Forum is where African pension funds, sovereign wealth funds, and family offices meet global private equity, venture capital, and asset managers. 
 The focus is on de-risking African investments and presenting curated, vetted opportunities from the sectors covered in our previous forums, translating project pipelines into investment-ready vehicles. 
@@ -656,8 +658,8 @@ DAY 2: CAPITAL CONNECTIONS
       theme: "Africa Tech Forum",
       date: "Sept 22-23, 2026",
       location: "To be announced — Forum Host Country Partner",
-      image:"/images/tech.jpg",
-description: `
+      image: "/images/tech.jpg",
+      description: `
 Africa's tech revolution is reshaping its economic destiny. 
 This forum is a dynamic, high-energy showcase of innovation, from FinTech and EdTech to HealthTech and CleanTech. 
 It is designed as a massive platform for startups to pitch to global VCs, for corporates to find tech solutions, and for governments to articulate their digital economy strategies. 
@@ -714,7 +716,7 @@ DAY 2: SCALING THROUGH PARTNERSHIPS
       location: "To be announced — Forum Host Country Partner",
       image:
         "/images/africatourism.jpg",
-description: `
+      description: `
 This forum is dedicated to selling the African experience to the world and dismantling barriers to intra-African trade. 
 We target global hotel chains, airlines, tour operators, and retail giants, focusing on high-value tourism (eco, cultural, luxury) and the practical implementation of the AfCFTA. 
 The agenda includes exclusive site visits and one-on-one deal-making sessions between tourism ministers and international investors. 
@@ -769,7 +771,7 @@ DAY 2: SIGNING THE DEALS
       location: "To be announced — Forum Host Country Partner",
       image:
         "/images/africahealth.jpg",
-description: `
+      description: `
 A healthy population is the core of economic productivity and sovereignty. 
 This forum addresses Africa's healthcare infrastructure gap and its burgeoning pharmaceutical market. 
 It brings together hospital groups, pharma manufacturers, medical tech companies, and impact investors to forge partnerships for building diagnostic centers, local vaccine production, and deploying scalable health-tech solutions. 
@@ -823,7 +825,7 @@ DAY 2: PARTNERING FOR HEALTH
       location: "UAE (A Global Nexus for Africa)",
       image:
         "/images/awardsend.jpg",
-    description: `
+      description: `
 The culminating event of the AEF journey. 
 This is not a talking shop but a grand celebration of the year's achievements and a look ahead to 2027. 
 The centerpiece is the launch of the AEF 2026 Deal Book, a comprehensive portfolio of partnerships and investments initiated through our forums. 
@@ -901,7 +903,7 @@ Join us at The African Table. Let's redesign the future, together.`,
         "https://readdy.ai/api/form/tourism-forum-registration",
     },
 
-    
+
   ];
 
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -985,14 +987,14 @@ Join us at The African Table. Let's redesign the future, together.`,
 
   const downloadAgenda = () => {
     const doc = new jsPDF();
-    
+
     // Adicione a logo da AEF
     // replace path with real logo path in public folder, e.g. /logo.png
     // doc.addImage requires base64 or Image element for remote images in some setups
     // keeping a simple header for now
     doc.text("THE AFRICA ECONOMIC FORUM 2026", 10, 20);
     doc.text("ANNUAL THEME: Africa and Global Realignments: Investments, Alliances, and Strategic Opportunities", 10, 30);
-    
+
     // Add simple footer
     const pageHeight = doc.internal.pageSize.height;
     doc.text("www.africaef.com | info@africaef.com", 10, pageHeight - 10);
@@ -1087,8 +1089,8 @@ Join us at The African Table. Let's redesign the future, together.`,
                       <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm font-medium">
                         {getInitials(
                           user.user_metadata?.full_name ||
-                            user.email?.charAt(0) ||
-                            "U"
+                          user.email?.charAt(0) ||
+                          "U"
                         )}
                       </div>
                     )}
@@ -1212,8 +1214,8 @@ Join us at The African Table. Let's redesign the future, together.`,
                         <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm font-medium">
                           {getInitials(
                             user.user_metadata?.full_name ||
-                              user.email?.charAt(0) ||
-                              "U"
+                            user.email?.charAt(0) ||
+                            "U"
                           )}
                         </div>
                       )}
@@ -1265,16 +1267,25 @@ Join us at The African Table. Let's redesign the future, together.`,
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <h1 className="text-5xl font-bold mb-6">THE AFRICA ECONOMIC FORUM 2026</h1>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
-            ANNUAL THEME: Africa and Global Realignments: Investments, Alliances, and Strategic Opportunities <br/>
+            ANNUAL THEME: Africa and Global Realignments: Investments, Alliances, and Strategic Opportunities <br />
             Our Mantra: We Don't Just Talk. We Deal.
           </p>
-          <a 
-            href="/Brochure.pdf"
-            download="AEF-2026-Full-Agenda.pdf"
-            className="bg-white text-blue-900 px-8 py-3 rounded-md hover:bg-gray-100 font-medium whitespace-nowrap cursor-pointer"
-          >
-            Download Full Agenda
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a
+              href={i18n.language === 'fr' ? "/Brochure - 2026 FR-3_compressed 2.pdf" : "/Brochure - 2026 ANG-2_compressed 3.pdf"}
+              download={i18n.language === 'fr' ? "AEF-2026-Brochure-FR.pdf" : "AEF-2026-Brochure-EN.pdf"}
+              className="bg-white text-blue-900 px-8 py-3 rounded-md hover:bg-gray-100 font-medium whitespace-nowrap cursor-pointer transition-colors"
+            >
+              📄 {i18n.language === 'fr' ? 'Télécharger la Brochure (FR)' : 'Download Brochure (EN)'}
+            </a>
+            <a
+              href="/DOSSIER DE PARTENARIAT - VERSION ANGLAISE.pdf"
+              download="AEF-2026-Partnership-Package-EN.pdf"
+              className="bg-teal-600 text-white px-8 py-3 rounded-md hover:bg-teal-700 font-medium whitespace-nowrap cursor-pointer transition-colors"
+            >
+              🤝 {i18n.language === 'fr' ? 'Dossier de Partenariat' : 'Partnership Package'}
+            </a>
+          </div>
         </div>
       </section>
 
@@ -1354,7 +1365,7 @@ Join us at The African Table. Let's redesign the future, together.`,
             </div>
 
             {/* Modal Footer */}
-            <div className="sticky bottom-0 bg-gray-50 border-t p-6 flex justify-end space-x-4">
+            <div className="sticky bottom-0 bg-gray-50 border-t p-6 flex flex-col sm:flex-row justify-end gap-3">
               <button
                 onClick={() => setShowChairmanModal(false)}
                 className="px-6 py-2 text-gray-700 border border-gray-300 rounded-md hover:bg-gray-100 font-medium cursor-pointer transition-colors"
@@ -1362,16 +1373,113 @@ Join us at The African Table. Let's redesign the future, together.`,
                 Close
               </button>
               <a
-                href="/Brochure.pdf"
-                download="AEF-2026-Full-Agenda.pdf"
+                href={i18n.language === 'fr' ? "/Brochure - 2026 FR-3_compressed 2.pdf" : "/Brochure - 2026 ANG-2_compressed 3.pdf"}
+                download={i18n.language === 'fr' ? "AEF-2026-Brochure-FR.pdf" : "AEF-2026-Brochure-EN.pdf"}
                 className="px-6 py-2 bg-blue-900 text-white rounded-md hover:bg-blue-800 font-medium cursor-pointer transition-colors"
               >
-                Download Full Agenda
+                📄 {i18n.language === 'fr' ? 'Télécharger (FR)' : 'Download (EN)'}
+              </a>
+              <a
+                href="/DOSSIER DE PARTENARIAT - VERSION ANGLAISE.pdf"
+                download="AEF-2026-Partnership-Package-EN.pdf"
+                className="px-6 py-2 bg-teal-600 text-white rounded-md hover:bg-teal-700 font-medium cursor-pointer transition-colors"
+              >
+                🤝 {i18n.language === 'fr' ? 'Partenariat' : 'Partnership'}
               </a>
             </div>
           </div>
         </div>
       )}
+
+      {/* The Concept: The Perpetual Forum & The African Table */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+              The Concept: The Perpetual Forum & The African Table
+            </h2>
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+              A new approach to economic diplomacy: continuous,strategic, and sovereign.
+            </p>
+          </div>
+
+          {/* Intro Text */}
+          <div className="max-w-5xl mx-auto mb-16">
+            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              The Africa Economic Forum is not a gathering. It is an architecture. It operates as a <strong>perpetual, year-round platform</strong> designed to align African sovereign priorities with global capital flows, institutional frameworks, and execution capacity. This model redefines how Africa positions itself in the global economy—not as a destination for donor conferences, but as <strong>the convening authority setting the terms of engagement</strong>.
+            </p>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Three interconnected pillars define the AEF Model:
+            </p>
+          </div>
+
+          {/* Three Core  Pillars */}
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            {/* 1. The Perpetual Forum */}
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-lg shadow-md border-b-4 border-blue-900">
+              <div className="w-16 h-16 bg-blue-900 text-white rounded-full flex items-center justify-center mx-auto mb-6">
+                <i className="ri-calendar-event-line text-2xl"></i>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">1. The Perpetual Forum</h3>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Unlike episodic summits, the AEF runs a continuous cycle of sector-specific forums, ensuring strategic continuity and measurable outcomes.
+              </p>
+              <ul className="text-sm text-gray-700 space-y-2">
+                <li><strong>Year-Round Engagement:</strong> Sustained dialogue between African governments, global investors, and institutions.</li>
+                <li><strong>Sector-Driven Precision:</strong> From critical minerals to infrastructure, each forum zeroes in on concrete deal structures and investment vehicles.</li>
+                <li><strong>Africa Sets the Clock:</strong> The Forum adapts to African policy cycles, resource extraction timelines, and political priorities—not external agendas.</li>
+              </ul>
+            </div>
+
+            {/* 2. The African Table */}
+            <div className="bg-gradient-to-br from-teal-50 to-teal-100 p-8 rounded-lg shadow-md border-b-4 border-teal-900">
+              <div className="w-16 h-16 bg-teal-900 text-white rounded-full flex items-center justify-center mx-auto mb-6">
+                <i className="ri-team-line text-2xl"></i>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">2. The African Table</h3>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Sovereignty begins with control of the agenda. The African Table means Africa invites, Africa convenes, and Africa defines the terms of cooperation.
+              </p>
+              <ul className="text-sm text-gray-700 space-y-2">
+                <li><strong>Agenda Sovereignty:</strong> Topics reflect African priorities, not external frameworks or geopolitical impositions.</li>
+                <li><strong>Strategic Matchmaking:</strong> Investors are curated based on alignment with long-term African development, not short-term extraction.</li>
+                <li><strong>Deal-Oriented Diplomacy:</strong> Every panel, every roundtable, every closed-door session is structured to move from dialogue to signed commitments.</li>
+              </ul>
+            </div>
+
+            {/* 3. Host Country Partnership */}
+            <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-lg shadow-md border-b-4 border-purple-900">
+              <div className="w-16 h-16 bg-purple-900 text-white rounded-full flex items-center justify-center mx-auto mb-6">
+                <i className="ri-government-line text-2xl"></i>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">3. Host Country Partnership</h3>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Each sector forum is hosted by an African nation that has committed to leading the agenda in that domain, ensuring the highest level of government engagement and deal-making potential.
+              </p>
+              <ul className="text-sm text-gray-700 space-y-2">
+                <li><strong>National Champions:</strong> The forum host demonstrates sovereign ownership of the sector's strategic vision.</li>
+                <li><strong>Infrastructure for Execution:</strong> Forums integrate national project pipelines, regulatory frameworks, and investment climate reforms.</li>
+                <li><strong>Permanent Regional Hub:</strong> Host nations become nodes of expertise and investment, sustaining sectoral networks beyond the event.</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Closing Statement */}
+          <div className="max-w-5xl mx-auto bg-gray-50 p-8 rounded-lg shadow-md border-l-4 border-blue-900">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Why This Matters</h3>
+            <p className="text-lg text-gray-700 leading-relaxed mb-4">
+              For decades, Africa has been the subject of conferences designed elsewhere. The AEF reverses this dynamic. It positions Africa as a <strong>global convening power</strong>, not a beneficiary of external goodwill. It is where African heads of state, finance ministers, and sovereign wealth funds align their strategies with the world's leading investors, development institutions, and industrial actors.
+            </p>
+            <p className="text-lg text-gray-700 leading-relaxed font-semibold text-blue-900">
+              The Perpetual Forum ensures continuity. The African Table ensures sovereignty. The Host Country Partnership ensures execution.
+            </p>
+            <p className="text-lg text-gray-700 leading-relaxed mt-4">
+              This is how Africa designs its future, sector by sector, deal by deal.
+            </p>
+          </div>
+        </div>
+      </section>
+
 
       {/* 2026 Journey Section */}
       <section className="py-20 bg-gray-50">
@@ -1822,14 +1930,14 @@ Join us at The African Table. Let's redesign the future, together.`,
       )}
 
       {/* Meeting Registration Form */}
-       <MeetingRegistrationForm
-         isOpen={isRegistrationOpen}
-         onClose={closeRegistration}
-         meetingTitle={registrationData.title}
-         meetingDate={registrationData.date}
-         submitUrl={registrationData.submitUrl}
-       />
-     </div>
-   );
- }
- // ...existing code...
+      <MeetingRegistrationForm
+        isOpen={isRegistrationOpen}
+        onClose={closeRegistration}
+        meetingTitle={registrationData.title}
+        meetingDate={registrationData.date}
+        submitUrl={registrationData.submitUrl}
+      />
+    </div>
+  );
+}
+// ...existing code...

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { useTranslation } from 'react-i18next';
-import { Forum } from '../../data/forumsData';
+import { Forum } from './forumsData';
 
 export default function Meetings() {
   const { user, signOut } = useAuth();
@@ -17,7 +17,8 @@ export default function Meetings() {
   const [forumsData, setForumsData] = useState<Forum[]>([]);
 
   useEffect(() => {
-    setForumsData(t('forums', { returnObjects: true }) as Forum[]);
+    const forums = t('forums', { returnObjects: true });
+    setForumsData(Array.isArray(forums) ? (forums as Forum[]) : []);
   }, [i18n.language, t]);
 
   const handleSignOut = async () => {
@@ -150,6 +151,27 @@ export default function Meetings() {
             </div>
           </div>
         )}
+
+        {forum.stakeholders && (
+          <div>
+            <h4 className="text-lg font-semibold text-gray-900 mb-3">The Africa Wealth Forum brings together:</h4>
+            <ul className="space-y-2">
+              {forum.stakeholders.map((stakeholder: string, index: number) => (
+                <li key={index} className="flex items-start">
+                  <span className="text-teal-600 mr-2">•</span>
+                  <span className="text-gray-700">{stakeholder}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {forum.purpose && (
+          <div>
+            <h4 className="text-lg font-semibold text-gray-900 mb-3">Purpose</h4>
+            <p className="text-gray-700 leading-relaxed">{forum.purpose}</p>
+          </div>
+        )}
       </div>
     );
   };
@@ -161,7 +183,7 @@ export default function Meetings() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <Link to={`/${i18n.language}`} className="flex items-center">
+              <Link to="/" className="flex items-center">
                 <img 
                   src="https://static.readdy.ai/image/433d1257c1dbc1f8bb2f3f1c418f6689/0727857f21d196505f8ef18cfc1cd897.png" 
                   alt="Africa Economic Forum" 
@@ -170,28 +192,28 @@ export default function Meetings() {
               </Link>
             </div>
             <nav className="hidden md:flex space-x-8">
-              <Link to={`/${i18n.language}`} className="text-gray-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors">
+              <Link to="/" className="text-gray-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors">
                 {t('header.home')}
               </Link>
-              <Link to={`/${i18n.language}/about`} className="text-gray-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors">
+              <Link to="/about" className="text-gray-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors">
                 {t('header.about')}
               </Link>
-              <Link to={`/${i18n.language}/initiatives`} className="text-gray-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors">
+              <Link to="/initiatives" className="text-gray-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors">
                 {t('header.initiatives')}
               </Link>
-              <Link to={`/${i18n.language}/stakeholders`} className="text-gray-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors">
+              <Link to="/stakeholders" className="text-gray-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors">
                 {t('header.stakeholders')}
               </Link>
-              <Link to={`/${i18n.language}/agenda`} className="text-gray-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors">
+              <Link to="/agenda" className="text-gray-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors">
                 {t('header.agenda')}
               </Link>
-              <Link to={`/${i18n.language}/publications`} className="text-gray-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors">
+              <Link to="/publications" className="text-gray-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors">
                 {t('header.publications')}
               </Link>
-              <Link to={`/${i18n.language}/meetings`} className="text-teal-600 px-3 py-2 text-sm font-medium border-b-2 border-teal-600">
+              <Link to="/meetings" className="text-teal-600 px-3 py-2 text-sm font-medium border-b-2 border-teal-600">
                 {t('header.meetings')}
               </Link>
-              <Link to={`/${i18n.language}/contact`} className="text-gray-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors">
+              <Link to="/contact" className="text-gray-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors">
                 {t('header.contact')}
               </Link>
             </nav>
@@ -259,28 +281,28 @@ export default function Meetings() {
         {isMobileMenuOpen && (
           <div className="md:hidden bg-white border-t border-gray-200">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              <Link to={`/${i18n.language}`} className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50 rounded-md">
+              <Link to="/" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50 rounded-md">
                 {t('header.home')}
               </Link>
-              <Link to={`/${i18n.language}/about`} className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50 rounded-md">
+              <Link to="/about" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50 rounded-md">
                 {t('header.about')}
               </Link>
-              <Link to={`/${i18n.language}/initiatives`} className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50 rounded-md">
+              <Link to="/initiatives" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50 rounded-md">
                 {t('header.initiatives')}
               </Link>
-              <Link to={`/${i18n.language}/stakeholders`} className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50 rounded-md">
+              <Link to="/stakeholders" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50 rounded-md">
                 {t('header.stakeholders')}
               </Link>
-              <Link to={`/${i18n.language}/agenda`} className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50 rounded-md">
+              <Link to="/agenda" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50 rounded-md">
                 {t('header.agenda')}
               </Link>
-              <Link to={`/${i18n.language}/publications`} className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50 rounded-md">
+              <Link to="/publications" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50 rounded-md">
                 {t('header.publications')}
               </Link>
-              <Link to={`/${i18n.language}/meetings`} className="block px-3 py-2 text-base font-medium text-teal-600 bg-teal-50 rounded-md">
+              <Link to="/meetings" className="block px-3 py-2 text-base font-medium text-teal-600 bg-teal-50 rounded-md">
                 {t('header.meetings')}
               </Link>
-              <Link to={`/${i18n.language}/contact`} className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50 rounded-md">
+              <Link to="/contact" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-teal-600 hover:bg-gray-50 rounded-md">
                 {t('header.contact')}
               </Link>
               <div className="px-3 py-2">
@@ -358,7 +380,7 @@ export default function Meetings() {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">
-            {forumsData.map((forum) => (
+            {(Array.isArray(forumsData) ? forumsData : []).map((forum) => (
               <div key={forum.id} className="bg-white rounded-lg shadow-lg overflow-hidden">
                 <img 
                   src={forum.image} 
@@ -624,24 +646,24 @@ export default function Meetings() {
             <div >
               <h3 className="font-semibold text-lg mb-6">{t('footer.aboutUs')}</h3>
               <ul className="space-y-3">
-                <li><Link to={`/${i18n.language}/about`} className="text-gray-300 hover:text-white cursor-pointer">{t('footer.ourMission')}</Link></li>
-                <li><Link to={`/${i18n.language}/framework`} className="text-gray-300 hover:text-white cursor-pointer">{t('footer.ourFramework')}</Link></li>
-                <li><Link to={`/${i18n.language}/history`} className="text-gray-300 hover:text-white cursor-pointer">{t('footer.history')}</Link></li>
-                <li><Link to={`/${i18n.language}/about`} className="text-gray-300 hover:text-white cursor-pointer">{t('footer.leadership')}</Link></li>
-                <li><Link to={`/${i18n.language}/about`} className="text-gray-300 hover:text-white cursor-pointer">{t('footer.ourImpact')}</Link></li>
+                <li><Link to="/about" className="text-gray-300 hover:text-white cursor-pointer">{t('footer.ourMission')}</Link></li>
+                <li><Link to="/framework" className="text-gray-300 hover:text-white cursor-pointer">{t('footer.ourFramework')}</Link></li>
+                <li><Link to="/history" className="text-gray-300 hover:text-white cursor-pointer">{t('footer.history')}</Link></li>
+                <li><Link to="/about" className="text-gray-300 hover:text-white cursor-pointer">{t('footer.leadership')}</Link></li>
+                <li><Link to="/about" className="text-gray-300 hover:text-white cursor-pointer">{t('footer.ourImpact')}</Link></li>
               </ul>
             </div>
             <div>
               <h3 className="font-semibold text-lg mb-6">{t('footer.moreFromForum')}</h3>
               <ul className="space-y-3">
-                <li><Link to={`/${i18n.language}/initiatives`} className="text-gray-300 hover:text-white cursor-pointer">{t('footer.centres')}</Link></li>
-                <li><Link to={`/${i18n.language}/meetings`} className="text-gray-300 hover:text-white cursor-pointer">{t('footer.meetings')}</Link></li>
-                <li><Link to={`/${i18n.language}/stakeholders`} className="text-gray-300 hover:text-white cursor-pointer">{t('footer.stakeholders')}</Link></li>
-                <li><Link to={`/${i18n.language}/agenda`} className="text-gray-300 hover:text-white cursor-pointer">{t('footer.forumStories')}</Link></li>
-                <li><Link to={`/${i18n.language}/publications`} className="text-gray-300 hover:text-white cursor-pointer">{t('footer.pressReleases')}</Link></li>
-                <li><Link to={`/${i18n.language}/gallery`} className="text-gray-300 hover:text-white cursor-pointer">{t('footer.gallery')}</Link></li>
-                <li><Link to={`/${i18n.language}/publications`} className="text-gray-300 hover:text-white cursor-pointer">{t('footer.podcasts')}</Link></li>
-                <li><Link to={`/${i18n.language}/publications`} className="text-gray-300 hover:text-white cursor-pointer">{t('footer.videos')}</Link></li>
+                <li><Link to="/initiatives" className="text-gray-300 hover:text-white cursor-pointer">{t('footer.centres')}</Link></li>
+                <li><Link to="/meetings" className="text-gray-300 hover:text-white cursor-pointer">{t('footer.meetings')}</Link></li>
+                <li><Link to="/stakeholders" className="text-gray-300 hover:text-white cursor-pointer">{t('footer.stakeholders')}</Link></li>
+                <li><Link to="/agenda" className="text-gray-300 hover:text-white cursor-pointer">{t('footer.forumStories')}</Link></li>
+                <li><Link to="/publications" className="text-gray-300 hover:text-white cursor-pointer">{t('footer.pressReleases')}</Link></li>
+                <li><Link to="/gallery" className="text-gray-300 hover:text-white cursor-pointer">{t('footer.gallery')}</Link></li>
+                <li><Link to="/publications" className="text-gray-300 hover:text-white cursor-pointer">{t('footer.podcasts')}</Link></li>
+                <li><Link to="/publications" className="text-gray-300 hover:text-white cursor-pointer">{t('footer.videos')}</Link></li>
               </ul>
             </div>
             <div>
@@ -658,18 +680,18 @@ export default function Meetings() {
                     </Link>
                   )}
                 </li>
-                <li><Link to={`/${i18n.language}/partners`} className="text-gray-300 hover:text-white cursor-pointer">{t('footer.partner')}</Link></li>
-                <li><Link to={`/${i18n.language}/join`} className="text-gray-300 hover:text-white cursor-pointer">{t('footer.member')}</Link></li>
-                <li><Link to={`/${i18n.language}/contact`} className="text-gray-300 hover:text-white cursor-pointer">{t('footer.pressSignUp')}</Link></li>
-                <li><Link to={`/${i18n.language}/contact`} className="text-gray-300 hover:text-white cursor-pointer">{t('footer.newsletters')}</Link></li>
-                <li><Link to={`/${i18n.language}/contact`} className="text-gray-300 hover:text-white cursor-pointer">{t('footer.contactUs')}</Link></li>
+                <li><Link to="/partners" className="text-gray-300 hover:text-white cursor-pointer">{t('footer.partner')}</Link></li>
+                <li><Link to="/join" className="text-gray-300 hover:text-white cursor-pointer">{t('footer.member')}</Link></li>
+                <li><Link to="/contact" className="text-gray-300 hover:text-white cursor-pointer">{t('footer.pressSignUp')}</Link></li>
+                <li><Link to="/contact" className="text-gray-300 hover:text-white cursor-pointer">{t('footer.newsletters')}</Link></li>
+                <li><Link to="/contact" className="text-gray-300 hover:text-white cursor-pointer">{t('footer.contactUs')}</Link></li>
               </ul>
             </div>
             <div>
               <h3 className="font-semibold text-lg mb-6">{t('footer.quickLinks')}</h3>
               <ul className="space-y-3 mb-8">
-                <li><Link to={`/${i18n.language}/about`} className="text-gray-300 hover:text-white cursor-pointer">{t('footer.sustainability')}</Link></li>
-                <li><Link to={`/${i18n.language}/careers`} className="text-gray-300 hover:text-white cursor-pointer">{t('footer.careers')}</Link></li>
+                <li><Link to="/about" className="text-gray-300 hover:text-white cursor-pointer">{t('footer.sustainability')}</Link></li>
+                <li><Link to="/careers" className="text-gray-300 hover:text-white cursor-pointer">{t('footer.careers')}</Link></li>
               </ul>
               <div>
                 <h4 className="font-semibold mb-4">{t('footer.languageEditions')}</h4>
@@ -702,7 +724,7 @@ export default function Meetings() {
                 </a>
               </div>
               <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6 text-sm text-gray-400">
-                <Link to={`/${i18n.language}/privacy`} className="hover:text-white cursor-pointer">{t('footer.privacy')}</Link>
+                <Link to="/privacy" className="hover:text-white cursor-pointer">{t('footer.privacy')}</Link>
                
                 <p>{t('footer.copyright')}</p>
                 <a href="https://codesignglobal.com" className="hover:text-white cursor-pointer">Code Design Global</a>
